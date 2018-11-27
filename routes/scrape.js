@@ -1,9 +1,21 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const got = require('got');
+const cheerio = require('cheerio');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+const router = express.Router();
+
+router.get('/', async (req, res, next) => {
+  try {
+    const response = await got('https://motherfuckingwebsite.com/');
+
+    // console.log(response.body);
+    const $ = cheerio.load(response.body);
+    const h1 = $('h1').text();
+    res.send(JSON.stringify({ title: h1 }));
+  } catch (error) {
+    console.log(error.response.body);
+  }
+
 });
 
 module.exports = router;
