@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 
     const $ = cheerio.load(response.body);
     $('#threadbits_forum_118 tr').each((i, element) => {
-      const title = $('td:nth-cshild(3) > div > a', element).text();
+      const title = $('td:nth-child(3) > div > a', element).text();
       let threadId = $('td:nth-child(3) > div > a', element).attr('href');
       threadId = threadId.split('t=').pop() || '';
 
