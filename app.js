@@ -5,6 +5,8 @@ const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
 const forumsRouter = require('./routes/forums');
+const postsRouter = require('./routes/posts');
+
 
 const app = express();
 
@@ -16,6 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/forums', forumsRouter);
+app.use('/posts', postsRouter);
+
 
 app.listen(3000, () => {
   console.log('App listening on port 3000!');
