@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-const scrapeRouter = require('./routes/scrape');
+const forumsRouter = require('./routes/forums');
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/scrape', scrapeRouter);
+app.use('/forums', forumsRouter);
 
 app.listen(3000, () => {
   console.log('App listening on port 3000!');
