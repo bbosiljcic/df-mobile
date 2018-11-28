@@ -5,7 +5,6 @@ const logger = require('morgan');
 
 const port = process.env.PORT || 5000;
 
-
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
 const forumsRouter = require('./routes/forums');
@@ -32,7 +31,7 @@ app.get('/backend', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log('App listening on port 3000!');
+  console.log(`App listening on port ${port}`);
 });
 
 module.exports = app;
