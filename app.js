@@ -3,10 +3,11 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const port = process.env.PORT || 5000;
+
+
 const indexRouter = require('./routes/index');
-
 const loginRouter = require('./routes/login');
-
 const forumsRouter = require('./routes/forums');
 const postsRouter = require('./routes/posts');
 const usersRouter = require('./routes/users');
@@ -26,7 +27,11 @@ app.use('/forums', forumsRouter);
 app.use('/posts', postsRouter);
 app.use('/users', usersRouter);
 
-app.listen(3000, () => {
+app.get('/backend', (req, res) => {
+  res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
+});
+
+app.listen(port, () => {
   console.log('App listening on port 3000!');
 });
 
