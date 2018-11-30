@@ -28,4 +28,4 @@ function getUserById(id) {
     return axios.get(`${apiPrefix}users/${id}`);
 };
 
-export { apiTest, getForumById, getPostById, getUserById};
+export { apiTest, getForumById, getTopicById, getUserById};
