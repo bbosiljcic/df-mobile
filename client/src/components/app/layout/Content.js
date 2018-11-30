@@ -6,6 +6,6 @@ export default class Content extends Component {
       <div>
         header
       </div>
-    )
+    );
   }
 }
