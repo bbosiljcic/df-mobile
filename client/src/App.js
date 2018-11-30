@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import { apiTest } from './services/api';
 import logo from './logo.svg';
 import './App.css';
 
@@ -15,8 +17,8 @@ class App extends Component {
 
 
   callBackendAPI = async () => {
-    const response = await fetch('/backend');
-    const body = await response.json();
+    const response = await apiTest();
+    const body = await response.data;
 
     if (response.status !== 200) {
       throw Error(body.message)
