@@ -20,8 +20,8 @@ function getForumById(id, page = 1) {
     return axios.get(`${apiPrefix}forums/${id}/${page}`);
 };
 
-function getPostById(id, page = 1) {
-    return axios.get(`${apiPrefix}posts/${id}/${page}`);
+function getTopicById(id, page = 1) {
+    return axios.get(`${apiPrefix}topics/${id}/${page}`);
 };
 
 function getUserById(id) {
