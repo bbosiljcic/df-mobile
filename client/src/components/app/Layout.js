@@ -1,25 +1,18 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 
+import Site from './layout/Site';
 import Header from './layout/Header';
 import Content from './layout/Content';
 import Footer from './layout/Footer';
 
 export default class Layout extends PureComponent {
   render() {
-    const { children } = this.props;
     return (
-      <div>
+      <Site>
         <Header />
-        <Content>
-          {children}
-        </Content>
+        <Content />
         <Footer />
-      </div>
+      </Site>
     );
   }
 }
-
-Layout.propTypes = {
-  children: PropTypes.node,
-};
