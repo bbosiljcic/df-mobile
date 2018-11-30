@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "client": "cd client && npm start",
+    "server": "nodemon app.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
@@ -16,6 +19,7 @@
     "morgan": "~1.9.0"
   },
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
