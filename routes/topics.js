@@ -4,8 +4,8 @@ const cheerio = require('cheerio');
 
 const router = express.Router();
 
-function parsePost(html) {
-  const posts = [];
+function parseTopic(html) {
+  const topics = [];
 
   const $ = cheerio.load(html);
   $('#posts > div').each((i, element) => {
@@ -18,7 +18,6 @@ function parsePost(html) {
     if (user.id) {
       user.id = parseInt(user.id.split('u=').pop(), 10) || null;
     }
-
 
     user.type = $('.alt2 .smallfont', element).html();
     user.op = $('.alt2 .smallfont', element).next().find('span').html() || false;
@@ -52,7 +51,7 @@ function parsePost(html) {
     }
 
     if (post) {
-      posts.push({
+      topics.push({
         post,
         user,
         time: time.trim(),
@@ -66,7 +65,7 @@ function parsePost(html) {
   }
 
   const title = $('meta[name=description]').attr('content');
-  return { posts, pages, title };
+  return { topics, pages, title };
 }
 
 router.get('/:id/:page?', async (req, res) => {
@@ -81,7 +80,7 @@ router.get('/:id/:page?', async (req, res) => {
       encoding: 'binary',
     });
 
-    const postsJSON = parsePost(response.body);
+    const postsJSON = parseTopic(response.body);
     res.send(JSON.stringify(postsJSON));
   } catch (error) {
     console.log(error);

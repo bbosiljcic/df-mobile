@@ -6,9 +6,9 @@ const logger = require('morgan');
 const port = process.env.PORT || 5000;
 
 const loginRouter = require('./routes/login');
-const forumsRouter = require('./routes/forums');
-const postsRouter = require('./routes/posts');
-const usersRouter = require('./routes/users');
+const forumRouter = require('./routes/forums');
+const topicRouter = require('./routes/topics');
+const userRouter = require('./routes/users');
 
 const app = express();
 
@@ -20,9 +20,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(`${apiPrefix}/login`, loginRouter);
-app.use(`${apiPrefix}/forums`, forumsRouter);
-app.use(`${apiPrefix}/posts`, postsRouter);
-app.use(`${apiPrefix}/users`, usersRouter);
+app.use(`${apiPrefix}/forums`, forumRouter);
+app.use(`${apiPrefix}/topics`, topicRouter);
+app.use(`${apiPrefix}/users`, userRouter);
 
 app.get(`${apiPrefix}/test`, (req, res) => {
   res.send({ express: 'backend connected' });
