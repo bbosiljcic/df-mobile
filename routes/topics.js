@@ -9,8 +9,14 @@ function parseTopic(html) {
 
   const $ = cheerio.load(html);
   $('#posts > div').each((i, element) => {
-    const post = $('[id^="post_message_"]', element).html();
+    let post = $('[id^="post_message_"]', element).html();
     const time = $('.thead', element).first().text();
+
+    if (i === 0) {
+      const postHtml = cheerio.load(post);
+      postHtml('div').remove();
+      post = postHtml.html();
+    }
 
     const user = {};
     user.name = $('[id^="postmenu_"] .bigusername', element).html();
