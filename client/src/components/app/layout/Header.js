@@ -5,7 +5,7 @@ export default class Header extends Component {
     return (
       <header className="section section--header shadow">
         <div className="container">
-          Navigation
+          <h1>df-mobile</h1>
         </div>
       </header>
     );

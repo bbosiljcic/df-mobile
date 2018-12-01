@@ -8,7 +8,10 @@ import User from '../User';
 const Router = () => (
   <Switch>
     <Route exact path="/" component={Home} />
+    <Route path="/forum/:id/:page" component={Forum} />
+    <Route path="/forum/:id" component={Forum} />
     <Route path="/forum" component={Forum} />
+
     <Route path="/topic" component={Topic} />
     <Route path="/user" component={User} />
   </Switch>

@@ -3,10 +3,15 @@ import { getForumById } from '../services/api';
 import Topic from './forum/Topic';
 
 export default class Forum extends Component {
-  constructor() {
+  constructor(props) {
     super();
+    const { match } = props;
+
+    console.log('Forum', this);
     this.state = {
       forums: [],
+      id: match.params.id || 154,
+      page: match.params.page || 1,
     };
     this.fakeData =  [
       {
@@ -38,8 +43,9 @@ export default class Forum extends Component {
   }
 
   async loadForum() {
-    // const response = await getForumById(154);
-    this.setState({ forums: this.fakeData });
+    const { id, page } = this.state;
+    const response = await getForumById(id, page);
+    this.setState({ forums: response.data });
   }
 
 
