@@ -12,7 +12,10 @@ const Router = () => (
     <Route path="/forum/:id" component={Forum} />
     <Route path="/forum" component={Forum} />
 
+    <Route path="/topic/:id/:page" component={Topic} />
+    <Route path="/topic/:id" component={Topic} />
     <Route path="/topic" component={Topic} />
+    <Route path="/user/:id" component={User} />
     <Route path="/user" component={User} />
   </Switch>
 );

@@ -7,17 +7,12 @@ export default class TopicPage extends Component {
     super();
     const { match } = props;
 
-    console.log('Forum', this);
     this.state = {
       posts: [],
       id: match.params.id || 154,
       page: match.params.page || 1,
     };
-    this.fakeData = [
-
-    ]
   }
-
 
   componentDidMount() {
     this.loadForum();
@@ -26,7 +21,6 @@ export default class TopicPage extends Component {
   async loadForum() {
     const { id, page } = this.state;
     const response = await getTopicById(id, page);
-    console.log('TopicPage', response);
     this.setState({ posts: response.data.topics });
   }
 
