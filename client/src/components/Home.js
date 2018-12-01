@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import Card from './shared/Card';
 
-class Home extends Component {
+export default class Home extends Component {
   constructor() {
     super();
 
@@ -12,16 +11,16 @@ class Home extends Component {
       { id: 118, title: 'Canon - Allgemein' },
       { id: 96, title: 'Canon - Biete' },
       { id: 109, title: 'Sony - Biete' },
-    ]
+    ];
   }
 
   renderForums() {
-    const { history } = this.props;
-
     return this.forums.map(f => (
-      <Card key={f.id} onClick={() => { history.push(`/forum/${f.id}`); }}>
-        <h4>{f.title}</h4>
-      </Card>
+      <Link to={`/forum/${f.id}`}>
+        <Card key={f.id}>
+          <h4>{f.title}</h4>
+        </Card>
+      </Link>
     ));
   }
 
@@ -33,11 +32,3 @@ class Home extends Component {
     );
   }
 }
-
-
-Home.propTypes = {
-  history: PropTypes.object,
-};
-
-export default withRouter(Home);
-

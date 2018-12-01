@@ -15,6 +15,7 @@ const Router = () => (
     <Route path="/topic/:id/:page" component={Topic} />
     <Route path="/topic/:id" component={Topic} />
     <Route path="/topic" component={Topic} />
+
     <Route path="/user/:id" component={User} />
     <Route path="/user" component={User} />
   </Switch>

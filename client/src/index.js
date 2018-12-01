@@ -9,7 +9,7 @@ import App from './components/App';
 
 // eslint-disable-next-line
 ReactDOM.render((
-  <Router forceRefresh>
+  <Router>
     <App />
   </Router>
 ), document.getElementById('root'));
