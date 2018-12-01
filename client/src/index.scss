@@ -1,2 +1,142 @@
 
 @import '~bulma';
+
+/*
+ *
+ * GENERAL
+ *
+ */
+
+$white: #fff;
+$font-main: #3b4355;
+$font-light: #c5cfd9;
+
+$light: #f4f7f9;
+$deep: #373e4e;
+
+body {
+    color: $font-main;
+    font-size: 16px;
+}
+
+.shadow {
+    box-shadow: rgba(0, 0, 0, 0.05) 0 0px 12px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    margin-bottom: 0.25em;
+    line-height: 1;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 3.5em;
+}
+
+
+h2 {
+    font-size: 2.75em;
+}
+
+h3 {
+    font-size: 2em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+h5 {
+    font-size: 1.25em;
+}
+
+.card {
+    padding: 1em;
+    margin-bottom: 2em;
+    border-radius: 0.75em;
+    box-shadow: rgba(0, 0, 0, .15) 0 0px 5px;
+    color: $font-main;
+}
+
+
+/*
+ *
+ * HEADER
+ *
+ */
+
+.section--header {
+    background: $white;
+    position: relative;
+    z-index: 10;
+    padding: 1em 1.5em;
+}
+
+
+/*
+ *
+ * CONTENT
+ *
+ */
+
+.section--content {
+    background: $light;
+}
+
+/*
+ *
+ *  FOOTER
+ *
+ */
+
+.section--footer {
+    background: $white;
+    position: relative;
+    z-index: 10;
+}
+
+
+/*
+ *
+ * TOPIC
+ *
+ */
+
+.topic {
+    display: flex;
+
+    .topic__title {
+        max-width: 80%;
+    }
+    h2 {
+        font-size: 1.25em;
+        font-weight: 600;
+    }
+
+    h3 {
+        font-size: 0.75em;
+        font-weight: 400;
+        color: $font-light;
+    }
+
+    .replys {
+        margin-top: 1em;
+        font-size: 0.9em;
+        font-weight: 600;
+    }
+
+    .info {
+        text-align: right;
+        font-size: 0.9em;
+        font-weight: 600;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .info--time {
+        color: $font-light;
+    }
+}

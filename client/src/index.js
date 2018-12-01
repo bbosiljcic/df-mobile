@@ -4,11 +4,12 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import './index.scss';
 import App from './components/App';
+
 // import * as serviceWorker from './serviceWorker';
 
 // eslint-disable-next-line
 ReactDOM.render((
-  <Router>
+  <Router forceRefresh>
     <App />
   </Router>
 ), document.getElementById('root'));

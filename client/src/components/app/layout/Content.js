@@ -4,10 +4,11 @@ import Router from '../Router';
 export default class Content extends Component {
   render() {
     return (
-      <div>
-        content
-        <Router />
-      </div>
+      <main className="section section--content">
+        <div className="container">
+          <Router />
+        </div>
+      </main>
     );
   }
 }

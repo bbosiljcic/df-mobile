@@ -10,22 +10,27 @@ axios.defaults.headers.post['Content-Type'] = jsonApi;
 //     baseURL: ROOT_URL,
 // });
 
-const apiPrefix = '/api/'
+const apiPrefix = '/api/';
 
 function apiTest() {
-    return axios.get(`${apiPrefix}test`);
-};
+  return axios.get(`${apiPrefix}test`);
+}
 
 function getForumById(id, page = 1) {
-    return axios.get(`${apiPrefix}forums/${id}/${page}`);
-};
+  return axios.get(`${apiPrefix}forums/${id}/${page}`);
+}
 
 function getTopicById(id, page = 1) {
-    return axios.get(`${apiPrefix}topics/${id}/${page}`);
-};
+  return axios.get(`${apiPrefix}topics/${id}/${page}`);
+}
 
 function getUserById(id) {
-    return axios.get(`${apiPrefix}users/${id}`);
-};
+  return axios.get(`${apiPrefix}users/${id}`);
+}
 
-export { apiTest, getForumById, getTopicById, getUserById};
+export {
+  apiTest,
+  getForumById,
+  getTopicById,
+  getUserById,
+};
