@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 import { getTopicById } from '../services/api';
 import Post from './topicPage/Post';
 
 export default class TopicPage extends Component {
+  static propTypes = {
+    match: PropTypes.object,
+  };
+
   constructor(props) {
     super();
     const { match } = props;
@@ -27,7 +32,7 @@ export default class TopicPage extends Component {
     this.setState({ posts: response.data.topics, pageCount: response.data.pages });
   }
 
-  async handlePageClick(data) {
+  handlePageClick = async (data) => {
     const { id } = this.state;
     const page = data.selected;
     const response = await getTopicById(id, page);
@@ -54,7 +59,7 @@ export default class TopicPage extends Component {
           pageCount={pageCount}
           marginPagesDisplayed={2}
           pageRangeDisplayed={3}
-          onPageChange={this.handlePageClick.bind(this)}
+          onPageChange={this.handlePageClick}
           activeClassName="active"
         />
       </div>

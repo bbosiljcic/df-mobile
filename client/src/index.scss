@@ -1,5 +1,6 @@
 
 @import '~bulma';
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700|Roboto+Condensed:400,700');
 
 /*
  *
@@ -8,15 +9,17 @@
  */
 
 $white: #fff;
-$font-main: #3b4355;
-$font-light: #c5cfd9;
+$font-main: #243949;
+$font-light: #768793;
 
 $light: #f4f7f9;
 $deep: #373e4e;
 
 body {
     color: $font-main;
+    background: $light;
     font-size: 16px;
+    font-family: 'PT Sans', sans-serif;
 }
 
 a,
@@ -32,11 +35,25 @@ a:active {
     box-shadow: rgba(0, 0, 0, 0.05) 0 0px 12px;
 }
 
+.logo-link {
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    max-height: 4em;
+}
+
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     margin-bottom: 0.25em;
     line-height: 1;
     font-weight: 700;
+}
+
+h1,
+h2 {
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 h1 {
@@ -75,7 +92,7 @@ h5 {
     padding: 0 0.5em;
 
     .active {
-        font-weight: 600;
+        font-weight: 700;
     }
 
     a {
@@ -91,10 +108,20 @@ h5 {
  */
 
 .section--header {
-    background: $white;
+    background-image: linear-gradient(-5deg, #243949 0%, #16222d 100%);
     position: relative;
     z-index: 10;
     padding: 1em 1.5em;
+
+    h1 {
+        margin: 0;
+    }
+
+    &,
+    h1,
+    a {
+        color: $white;
+    }
 }
 
 
@@ -136,18 +163,17 @@ h5 {
 
     h2 {
         font-size: 1.25em;
-        font-weight: 600;
     }
 
     h3 {
-        font-size: 0.75em;
+        font-size: 0.9em;
         font-weight: 400;
         color: $font-light;
     }
 
     .info--reply {
         font-size: 0.9em;
-        font-weight: 600;
+        font-weight: 700;
     }
 
     .info {
@@ -159,7 +185,7 @@ h5 {
     .info--right {
         text-align: right;
         font-size: 0.9em;
-        font-weight: 600;
+        font-weight: 700;
         flex-grow: 1;
         display: flex;
         flex-direction: column;
@@ -174,7 +200,7 @@ h5 {
 
 .post_content {
     .smallfont {
-        font-weight: 600;
+        font-weight: 700;
     }
     table td {
         border: 0 !important;

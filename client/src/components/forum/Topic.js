@@ -7,7 +7,6 @@ export default class Topic extends Component {
   render() {
     const { content } = this.props;
 
-    console.log('context', this.props);
     return (
       <Link to={`/topic/${content.threadId}`}>
         <Card>

@@ -1,3 +1,12 @@
 module.exports = {
-    "extends": "airbnb"
+    "extends": "airbnb",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "classes": true
+        }
+    },
+    "plugins": [
+        "react"
+    ],
 };
