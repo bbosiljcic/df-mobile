@@ -67,7 +67,6 @@ export default class TopicPage extends Component {
 
     return (
       <div>
-        {pagination}
         {this.renderPosts()}
         {pagination}
       </div>

@@ -67,7 +67,6 @@ export default class Forum extends Component {
 
     return (
       <div>
-        {pagination}
         {this.renderTopics()}
         {pagination}
       </div>
