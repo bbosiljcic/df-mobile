@@ -2,20 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import Card from './shared/Card';
+import { getForumList } from '../services/api';
 
 export default class Home extends Component {
   constructor() {
     super();
 
-    this.forums = [
-      { id: 96, title: 'Canon - Biete' },
-      { id: 114, title: 'Zubehör - Biete' },
-      { id: 109, title: 'Sony - Biete' },
-      { id: 118, title: 'Canon - Allgemein' },
-      { id: 12, title: 'Canon - Objektive' },
-      { id: 103, title: 'Canon - Zubehör' },
-      { id: 258, title: 'Canon - EOS R' },
-    ];
+    this.forums = getForumList();
   }
 
   renderForums() {

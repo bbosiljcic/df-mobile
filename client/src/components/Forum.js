@@ -7,6 +7,10 @@ import { getForumById } from '../services/api';
 import Topic from './forum/Topic';
 
 export default class Forum extends Component {
+  static contextTypes = {
+    router: PropTypes.object,
+  }
+
   static propTypes = {
     match: PropTypes.object,
   };
@@ -35,9 +39,11 @@ export default class Forum extends Component {
 
   handlePageClick = async (data) => {
     const { id } = this.state;
-    const page = data.selected;
+    const { router } = this.context;
+    const page = data.selected + 1;
     const response = await getForumById(id, page);
     this.setState({ forums: response.data, page }, () => {
+      router.history.push(`/forum/${id}/${page}`);
       window.scrollTo(0, 0);
     });
   }

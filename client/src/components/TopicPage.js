@@ -5,6 +5,10 @@ import { getTopicById } from '../services/api';
 import Post from './topicPage/Post';
 
 export default class TopicPage extends Component {
+  static contextTypes = {
+    router: PropTypes.object,
+  }
+
   static propTypes = {
     match: PropTypes.object,
   };
@@ -17,7 +21,7 @@ export default class TopicPage extends Component {
       posts: [],
       id: match.params.id || 154,
       page: match.params.page || 1,
-      pageCount: null,
+      pageCount: 1,
 
     };
   }
@@ -34,9 +38,11 @@ export default class TopicPage extends Component {
 
   handlePageClick = async (data) => {
     const { id } = this.state;
-    const page = data.selected;
+    const { router } = this.context;
+    const page = data.selected + 1;
     const response = await getTopicById(id, page);
     this.setState({ posts: response.data.topics, page, pageCount: response.data.pages }, () => {
+      router.history.push(`/topic/${id}/${page}`);
       window.scrollTo(0, 0);
     });
   }

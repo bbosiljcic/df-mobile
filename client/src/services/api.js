@@ -28,9 +28,22 @@ function getUserById(id) {
   return axios.get(`${apiPrefix}users/${id}`);
 }
 
+function getForumList() {
+  return [
+    { id: 96, title: 'Canon - Biete' },
+    { id: 114, title: 'Zubehör - Biete' },
+    { id: 109, title: 'Sony - Biete' },
+    { id: 118, title: 'Canon - Allgemein' },
+    { id: 12, title: 'Canon - Objektive' },
+    { id: 103, title: 'Canon - Zubehör' },
+    { id: 258, title: 'Canon - EOS R' },
+  ];
+}
+
 export {
   apiTest,
   getForumById,
   getTopicById,
   getUserById,
+  getForumList,
 };
