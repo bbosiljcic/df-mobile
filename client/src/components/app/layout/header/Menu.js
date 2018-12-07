@@ -8,7 +8,6 @@ import { getForumList } from '../../../../services/api';
 export default class Menu extends Component {
   constructor() {
     super();
-
     this.state = {
       open: false,
     };
@@ -17,12 +16,11 @@ export default class Menu extends Component {
   }
 
   renderMenuItems = () => {
-    const items = this.forums.map((f) => {
-      return (
-        <Link class="menu--item" key={f.id} to={`/forum/${f.id}`}>
-          {f.title}
-        </Link>);
-    });
+    const items = this.forums.map(f => (
+      <Link class="menu--item" key={f.id} to={`/forum/${f.id}`} onClick={() => { this.setState({ open: false }); }}>
+        {f.title}
+      </Link>
+    ));
 
     return items;
   }

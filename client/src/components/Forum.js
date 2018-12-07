@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import ReactPaginate from 'react-paginate';
 
 import { getForumById } from '../services/api';
@@ -30,6 +29,16 @@ export default class Forum extends Component {
   componentDidMount() {
     this.loadForum();
   }
+
+  componentWillUpdate(nextProps) {
+    const { match } = this.props;
+
+    if (match.params.id !== nextProps.match.params.id) {
+      this.state.id = nextProps.match.params.id;
+      this.loadForum();
+    }
+  }
+
 
   async loadForum() {
     const { id, page } = this.state;
