@@ -170,3 +170,16 @@ h5 {
         color: $font-light;
     }
 }
+
+
+.post_content {
+    .smallfont {
+        font-weight: 600;
+    }
+    table td {
+        border: 0 !important;
+        a {
+            display: none;
+        }
+    }
+}
