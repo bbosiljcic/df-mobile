@@ -11,7 +11,7 @@ export default class Layout extends Component {
       <Site>
         <Header />
         <Content />
-        <Footer />
+        {/* <Footer /> */}
       </Site>
     );
   }

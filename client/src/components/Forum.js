@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactPaginate from 'react-paginate';
+
 import { getForumById } from '../services/api';
 import Topic from './forum/Topic';
 
@@ -12,6 +14,7 @@ export default class Forum extends Component {
       forums: [],
       id: match.params.id || 154,
       page: match.params.page || 1,
+      pageCount: 30,
     };
     this.fakeData =  [
       {
@@ -48,16 +51,45 @@ export default class Forum extends Component {
     this.setState({ forums: response.data });
   }
 
+  async handlePageClick(data) {
+    const { id } = this.state;
+    const page = data.selected;
+    const response = await getForumById(id, page);
+    this.setState({ forums: response.data, page }, () => {
+      window.scrollTo(0, 0);
+    });
+  }
+
 
   renderTopics() {
     const { forums } = this.state;
     return forums.map(t => <Topic key={t.threadId} content={t} />);
   }
 
+
   render() {
+    const { pageCount } = this.state;
+
+    const pagination = (
+      <div className="pagination">
+        <ReactPaginate
+          previousLabel="<"
+          nextLabel=">"
+          breakLabel="..."
+          pageCount={pageCount}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={3}
+          onPageChange={this.handlePageClick.bind(this)}
+          activeClassName="active"
+        />
+      </div>
+    );
+
     return (
       <div>
+        {pagination}
         {this.renderTopics()}
+        {pagination}
       </div>
     );
   }

@@ -8,16 +8,20 @@ export default class Home extends Component {
     super();
 
     this.forums = [
-      { id: 118, title: 'Canon - Allgemein' },
       { id: 96, title: 'Canon - Biete' },
+      { id: 114, title: 'Zubehör - Biete' },
       { id: 109, title: 'Sony - Biete' },
+      { id: 118, title: 'Canon - Allgemein' },
+      { id: 12, title: 'Canon - Objektive' },
+      { id: 103, title: 'Canon - Zubehör' },
+      { id: 258, title: 'Canon - EOS R' },
     ];
   }
 
   renderForums() {
     return this.forums.map(f => (
-      <Link to={`/forum/${f.id}`}>
-        <Card key={f.id}>
+      <Link key={f.id} to={`/forum/${f.id}`}>
+        <Card>
           <h4>{f.title}</h4>
         </Card>
       </Link>

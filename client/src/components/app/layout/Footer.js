@@ -5,7 +5,6 @@ export default class Footer extends Component {
     return (
       <footer className="section section--footer shadow">
         <div className="container">
-          footer
         </div>
       </footer>
     );

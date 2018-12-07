@@ -15,13 +15,15 @@ export default class Topic extends Component {
             <div className="topic__title">
               <h2>{content.title}</h2>
               <h3>{content.user}</h3>
-              <div className="replys">
-                {`${content.replys} Antworten`}
-              </div>
             </div>
             <div className="info">
-              <div className="info--hits">{content.hits}</div>
-              <div className="info--time">{content.updateTime}</div>
+              <div className="info--reply">
+                {`${content.replys} Antworten`}
+              </div>
+              <div className="info--right">
+                <div className="info--hits">{content.hits}</div>
+                <div className="info--time">{content.updateTime}</div>
+              </div>
             </div>
 
           </div>
