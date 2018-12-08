@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Card from '../shared/Card';
+import ViewsIcon from '../../assets/views.svg';
+import ReplyIcon from '../../assets/reply.svg';
+import SkeletonIcon from '../../assets/skeleton.svg';
+
 
 export default class Topic extends Component {
   render() {
@@ -13,17 +17,19 @@ export default class Topic extends Component {
           <div className="topic">
             <div className="topic_user">
               <h3>{content.user}</h3>
-                <div className="info--time">{content.updateTime}</div>
+              <div className="info--time">{content.updateTime}</div>
             </div>
             <div className="topic__title">
               <h2>{content.title}</h2>
             </div>
             <div className="info">
-              <div className="info--reply">
+              <div className="info--left">
                 {content.replys}
+                <img src={content.replys ? ReplyIcon : SkeletonIcon} className="icon reply--icon" alt="replys" />
               </div>
               <div className="info--right">
-                <div className="info--hits">{content.hits}</div>
+                <img src={content.hits ? ViewsIcon : SkeletonIcon} className="icon views--icon" alt="views" />
+                {content.hits}
               </div>
             </div>
 
