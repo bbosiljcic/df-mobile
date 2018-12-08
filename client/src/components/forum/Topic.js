@@ -17,7 +17,7 @@ export default class Topic extends Component {
             </div>
             <div className="info">
               <div className="info--reply">
-                {`${content.replys} Antworten`}
+                {content.replys}
               </div>
               <div className="info--right">
                 <div className="info--hits">{content.hits}</div>

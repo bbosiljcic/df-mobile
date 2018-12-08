@@ -19,7 +19,7 @@ export default class Forum extends Component {
     const { match } = props;
 
     this.state = {
-      forums: [],
+      forums: [{}, {}, {}, {}, {}, {}],
       id: match.params.id || 154,
       page: match.params.page || 1,
       pageCount: 30,
