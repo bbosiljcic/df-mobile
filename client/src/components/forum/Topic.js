@@ -9,11 +9,14 @@ export default class Topic extends Component {
 
     return (
       <Link to={`/topic/${content.threadId}`}>
-        <Card>
+        <Card style={{ padding: 0 }}>
           <div className="topic">
+            <div className="topic_user">
+              <h3>{content.user}</h3>
+                <div className="info--time">{content.updateTime}</div>
+            </div>
             <div className="topic__title">
               <h2>{content.title}</h2>
-              <h3>{content.user}</h3>
             </div>
             <div className="info">
               <div className="info--reply">
@@ -21,7 +24,6 @@ export default class Topic extends Component {
               </div>
               <div className="info--right">
                 <div className="info--hits">{content.hits}</div>
-                <div className="info--time">{content.updateTime}</div>
               </div>
             </div>
 

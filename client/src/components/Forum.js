@@ -43,7 +43,8 @@ export default class Forum extends Component {
   async loadForum() {
     const { id, page } = this.state;
     const response = await getForumById(id, page);
-    this.setState({ forums: response.data });
+    const dataa = [response.data[0], {}, response.data[1], {}]
+    this.setState({ forums: dataa });
   }
 
   handlePageClick = async (data) => {

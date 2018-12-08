@@ -122,7 +122,7 @@ h5 {
     background-image: linear-gradient(-5deg, #243949 0%, #16222d 100%);
     position: relative;
     z-index: 10;
-    padding: 1em 0 1em;
+    padding: 1em 0 0;
 
     h1 {
         margin: 0;
@@ -181,6 +181,8 @@ h5 {
 
 .section--content {
     background: $light;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
 
     @include until($tablet) {
         padding-left: 0;
@@ -208,41 +210,76 @@ h5 {
  */
 
 .topic {
+    font-family: 'Roboto Condensed', sans-serif;
+
+    .topic__title,
+    .topic__user,
+    .info, {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 
     h2 {
         font-size: 1.25em;
         /* sceleton screen */
         &:empty {
             width: 100%;
-            height: 79px;
+            height: 41px;
 
             background-repeat: no-repeat;
             background-image:
                 linear-gradient(90deg, rgba($white, 0) 0, rgba($white, 0.3) 60%, rgba($white, 0) 100%),
-                linear-gradient($grey 40px, transparent 0),
-                linear-gradient($grey 0.9rem, transparent 0),
-                linear-gradient($grey 0.9rem, transparent 0);
+                linear-gradient($grey 40px, transparent 0);
 
             background-size:
                 70%,
-                70% 20px, /* title */
-                20% 0.9rem,
-                18% 0.9rem;
+                70% 20px; /* title */
+
 
             background-position:
                 -150% 0,
                 0 0, /* title */
-                0 28px,
-                0 64px;
             }
 
             animation: loading 1.5s infinite;
     }
 
+    .topic_user {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        padding-bottom: 0.25rem;
+        border-bottom: 2px solid #dde2e4;
+        margin-bottom: 0.5rem;
+    }
+
     h3 {
-        font-size: 0.9em;
-        font-weight: 400;
+        margin: 0;
+        font-size: 1em;
+        font-weight: 700;
         color: $font-light;
+
+        &:empty {
+            width: 100%;
+            height: 21px;
+
+            background-repeat: no-repeat;
+            background-image:
+                linear-gradient(90deg, rgba($white, 0) 0, rgba($white, 0.3) 60%, rgba($white, 0) 100%),
+                linear-gradient($grey 16px, transparent 0);
+
+            background-size:
+                70%,
+                20% 16px;
+
+
+            background-position:
+                -150% 0,
+                0 0,
+            }
+
+            animation: loading 1.5s infinite;
     }
 
     .info--reply {
@@ -254,6 +291,7 @@ h5 {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
+        padding: 1rem;
     }
 
     .info--right {
@@ -268,6 +306,7 @@ h5 {
 
     .info--time {
         color: $font-light;
+        font-size: 0.9rem;
     }
 }
 
