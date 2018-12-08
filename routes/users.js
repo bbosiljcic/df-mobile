@@ -88,7 +88,7 @@ router.get('/:id', async (req, res) => {
       baseUrl: 'https://www.dslr-forum.de',
       encoding: 'binary',
       headers: {
-        Cookie: '__utma=161704867.1913328156.1505409415.1510357348.1510608945.56; mbmcookie=1; dslrlastvisit=1537049277; dslrlastactivity=0; dslruserid=61087; dslrpassword=d945e703e15d458e45c05f6a91ba4bea; __gads=ID=17321b1e068e2991:T=1543261447:S=ALNI_MaxVNV6N2aXSi1jlzACeOuQ2qSzCQ; dslrsessionhash=8ee8f3a9c89e82c4c4434bda537e8932',
+        Cookie: 'x',
       },
     });
 
