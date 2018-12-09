@@ -18,7 +18,7 @@ export default class TopicPage extends Component {
     const { match } = props;
 
     this.state = {
-      posts: [],
+      posts: [{}, {}, {}],
       id: match.params.id || 154,
       page: match.params.page || 1,
       pageCount: 1,
@@ -56,7 +56,7 @@ export default class TopicPage extends Component {
   render() {
     const { pageCount } = this.state;
 
-    const pagination = (
+    const pagination = pageCount > 1 ? (
       <div className="pagination">
         <ReactPaginate
           previousLabel="<"
@@ -69,7 +69,7 @@ export default class TopicPage extends Component {
           activeClassName="active"
         />
       </div>
-    );
+    ) : null;
 
     return (
       <div>
